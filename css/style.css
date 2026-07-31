@@ -1,0 +1,199 @@
+/* Student Management System - Custom Stylesheet */
+
+:root {
+    --primary-color: #3f51b5;
+    --primary-dark: #303f9f;
+    --secondary-color: #f50057;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --sidebar-width: 250px;
+    --sidebar-bg: #1e293b;
+    --sidebar-hover: #334155;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f1f5f9;
+    color: #334155;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styling */
+#sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: #cbd5e1;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: all var(--transition-speed);
+}
+
+#sidebar .sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar .nav-link {
+    color: #94a3b8;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+    border-left: 4px solid transparent;
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    color: #fff;
+    background-color: var(--sidebar-hover);
+    border-left-color: var(--secondary-color);
+}
+
+#sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area */
+#main-content {
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+    transition: all var(--transition-speed);
+}
+
+/* Top Navbar inside main content */
+.navbar-custom {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards & Styling */
+.card-stat {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform var(--transition-speed);
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+}
+
+.card-common {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+}
+
+.card-common .card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+}
+
+.card-common .card-body {
+    padding: 1.5rem;
+}
+
+/* Custom Table style */
+.table-custom th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.table-custom td {
+    vertical-align: middle;
+}
+
+/* Login Page Layout */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Overrides */
+@media (max-width: 991.98px) {
+    #sidebar {
+        left: -250px;
+    }
+    
+    #sidebar.active {
+        left: 0;
+    }
+    
+    #main-content {
+        margin-left: 0;
+    }
+    
+    #main-content.active {
+        margin-left: 250px;
+    }
+    
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 99;
+        top: 0;
+        left: 0;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+    }
+}
+
+/* Printing styles for reports */
+@media print {
+    #sidebar, .navbar-custom, .btn, .pagination, .actions-column, .sidebar-overlay {
+        display: none !important;
+    }
+    
+    #main-content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    .card-common {
+        box-shadow: none !important;
+        border: none !important;
+    }
+    
+    .table-custom th {
+        background-color: #eee !important;
+        color: #000 !important;
+    }
+}
